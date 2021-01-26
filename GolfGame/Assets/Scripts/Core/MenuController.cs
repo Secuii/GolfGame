@@ -3,7 +3,8 @@ using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour
 {
-    [SerializeField] private GameObject MenuPanel = null;
+    [SerializeField] private GameObject currentPanel = null;
+    [SerializeField] private GameObject lastPanel = null;
 
     public void StartMultiplayerMatch()
     {
@@ -17,14 +18,23 @@ public class MenuController : MonoBehaviour
 
     public void ChangeMenuPanel(GameObject nextPanel)
     {
-        MenuPanel.SetActive(false);
+        currentPanel.SetActive(false);
         nextPanel.SetActive(true);
+        lastPanel = currentPanel;
+        currentPanel = nextPanel;
     }
     
     public void BackMenu(GameObject currentPanel)
     {
-        MenuPanel.SetActive(true);
-        currentPanel.SetActive(false);
+        lastPanel.SetActive(true);
+        this.currentPanel.SetActive(false);
+        this.currentPanel = lastPanel;
+        lastPanel = currentPanel;
+    }
+
+    public void StartMatchScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 
     public void ExitGame()
