@@ -5,21 +5,19 @@ using TMPro;
 
 public class MultiplayerMatchController : MonoBehaviour
 {
-    private int currentHole = 0;
+    public Players[] players = new Players[4];
     
     [SerializeField] TMP_Text currentPlayerText = null;
     [SerializeField] TMP_Text currentPlayerCountText = null;
     [SerializeField] TMP_Text currentHoleText = null;
     [SerializeField] TMP_Text currentHoleParText = null;
-    public Players[] players = new Players[4];
 
-    private int[] Par = new int[18] { 3, 5, 3, 5, 4, 4, 3, 6, 3, 3, 4, 2, 5, 4, 3, 5, 2, 4 };    //TODO  Cambiar esto que es la media de golpes para meter la pelota en le agujero
-    private int[] playerKicks = new int[4];
+    [SerializeField] GameObject scoreContainer = null;
 
+    private readonly int[] par = new int[18] { 3, 5, 3, 5, 4, 4, 3, 6, 3, 3, 4, 2, 5, 4, 3, 5, 2, 4 };    //TODO  Cambiar esto que es la media de golpes para meter la pelota en le agujero
+    private int currentHole = 0;
     private int currentPlayer = 0;
-
-    //TODO Sera seteado en el menu principal
-    public static int playerCount = 2;
+    private int playerCount = 2;
 
     private bool isScoreShow = false;
 
@@ -41,13 +39,16 @@ public class MultiplayerMatchController : MonoBehaviour
     private void Start()
     {
         playerCount = SV.numberPlayer;
-        //TODO Leer datos de una clase estatica para setear los valores de la partida multiplayer
+        for (int i = 0; i < playerCount + 1; i++)
+        {
+            scoreContainer.transform.GetChild(i).gameObject.SetActive(true);
+        }
         StartMatch();
     }
 
     private void StartMatch()
     {
-        currentHoleParText.text = Par[0].ToString();
+        currentHoleParText.text = par[0].ToString();
 
     }
 
@@ -68,7 +69,7 @@ public class MultiplayerMatchController : MonoBehaviour
     {
         currentHole++;
         currentHoleText.text = (currentHole + 1).ToString();
-        currentHoleParText.text = Par[currentHole].ToString();
+        currentHoleParText.text = par[currentHole].ToString();
         if (currentHole + 1 == 19)
         {
             currentHoleText.text = "18";
