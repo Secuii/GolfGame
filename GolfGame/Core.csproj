@@ -64,8 +64,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Core\ConectToRanking.cs" />
     <Compile Include="Assets\Scripts\Core\InitializeGame.cs" />
     <Compile Include="Assets\Scripts\Core\MenuController.cs" />
+    <Compile Include="Assets\Scripts\Core\SV.cs" />
     <None Include="Assets\Scripts\Core\Core.asmdef" />
     <Reference Include="UnityEngine">
       <HintPath>/Users/secuii/Desktop/Escritorio/Unity Projects/2019.4.18f1/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
@@ -638,16 +640,7 @@
       <HintPath>/Users/secuii/Desktop/GolfGame/GolfGame/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Database.csproj">
-      <Project>{666921DE-675F-9E5C-6788-57F0C29BE41F}</Project>
-      <Name>Database</Name>
-    </ProjectReference>
-    <ProjectReference Include="GolfGame.csproj">
-      <Project>{E150DF18-09B0-3517-C1DC-2EEADE33C464}</Project>
-      <Name>GolfGame</Name>
-    </ProjectReference>
-  </ItemGroup>
+  <ItemGroup></ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

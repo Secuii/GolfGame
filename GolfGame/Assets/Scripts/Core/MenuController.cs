@@ -37,6 +37,11 @@ public class MenuController : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
+    public void SetPlayerCount(int playerCount)
+    {
+        SV.numberPlayer = playerCount;
+    }
+
     public void ExitGame()
     {
         Application.Quit();

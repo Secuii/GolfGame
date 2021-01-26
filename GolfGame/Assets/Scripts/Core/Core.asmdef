@@ -1,9 +1,6 @@
 {
     "name": "Core",
-    "references": [
-        "Database",
-        "GolfGame"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

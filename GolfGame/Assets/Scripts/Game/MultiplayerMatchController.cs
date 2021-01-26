@@ -2,7 +2,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System.Linq;
 
 public class MultiplayerMatchController : MonoBehaviour
 {
@@ -41,6 +40,7 @@ public class MultiplayerMatchController : MonoBehaviour
 
     private void Start()
     {
+        playerCount = SV.numberPlayer;
         //TODO Leer datos de una clase estatica para setear los valores de la partida multiplayer
         StartMatch();
     }
