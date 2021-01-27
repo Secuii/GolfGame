@@ -13,27 +13,27 @@ public class SoloMatchController : MatchController
     [SerializeField] private TMP_Text totalScores = null;
     private int[] MatchScores = new int[18] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
-    private readonly int[] par = new int[18] { 3, 5, 3, 5, 4, 4, 3, 6, 3, 3, 4, 2, 5, 4, 3, 5, 2, 4 };    //TODO  Cambiar esto que es la media de golpes para meter la pelota en le agujero
     private int currentHole = 0;
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            //TODO Cambio de jugador
-            ChangeHole();
-        }
-    }
 
     private void Start()
     {
         StartMatch();
+        SV.isSoloMatch = true;
     }
 
     public override void StartMatch()
     {
-        SceneManager.LoadSceneAsync("Hole1",LoadSceneMode.Additive);
         currentHoleParText.text = par[0].ToString();
+        SceneManager.LoadSceneAsync("Hole1", LoadSceneMode.Additive);
+        SV.oldScene = "Hole1";
+
+    }
+
+    public override void ChangeScene(string nextScene)
+    {
+        SceneManager.LoadSceneAsync(nextScene, LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync(SV.oldScene);
+        SV.oldScene = nextScene;
     }
 
     public override void ChangeHole()

@@ -2,6 +2,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 
 public class MultiplayerMatchController : MatchController
 {
@@ -14,24 +16,13 @@ public class MultiplayerMatchController : MatchController
 
     [SerializeField] GameObject scoreContainer = null;
 
-    private readonly int[] par = new int[18] { 3, 5, 3, 5, 4, 4, 3, 6, 3, 3, 4, 2, 5, 4, 3, 5, 2, 4 };    //TODO  Cambiar esto que es la media de golpes para meter la pelota en le agujero
     private int currentHole = 0;
     private int currentPlayer = 0;
     private int playerCount = 2;
 
-
-    private void Update()
-    {
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            //TODO Cambio de jugador
-            SwapPlayer();
-        }
-    }
-
     private void Start()
     {
+        SV.isSoloMatch = false;
         playerCount = SV.numberPlayer;
         for (int i = 0; i < playerCount + 1; i++)
         {
@@ -43,9 +34,16 @@ public class MultiplayerMatchController : MatchController
     public override void StartMatch()
     {
         currentHoleParText.text = par[0].ToString();
-
+        SceneManager.LoadSceneAsync("Hole1", LoadSceneMode.Additive);
+        SV.oldScene = "Hole1";
     }
 
+    public override void ChangeScene(string nextScene)
+    {
+        SceneManager.LoadSceneAsync(nextScene, LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync(SV.oldScene);
+        SV.oldScene = nextScene;
+    }
     public override void SwapPlayer()
     {
         currentPlayer++;
@@ -69,6 +67,7 @@ public class MultiplayerMatchController : MatchController
             currentHoleText.text = "18";
             FinishGame();
         }
+        //ChangeScene();
     }
 
     public override void SetHolesPoints()

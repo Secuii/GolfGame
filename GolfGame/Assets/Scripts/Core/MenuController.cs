@@ -13,7 +13,7 @@ public class MenuController : MonoBehaviour
 
     public void StartSoloMatch()
     {
-        SceneManager.LoadScene("MultiplayerMatch");
+        SceneManager.LoadScene("SoloMatch");
     }
 
     public void ChangeMenuPanel(GameObject nextPanel)

@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class BallController : MonoBehaviour
 {
-    public Rigidbody ballPhysiscs { get; set; }
-    public bool isDisplayed { get; set; } = true;
+    public Rigidbody BallPhysiscs { get; set; }
+    public bool IsDisplayed { get; set; } = true;
+    [SerializeField] private MatchController matchController;
     [SerializeField] private GameObject controllersPanel = null;
     [SerializeField] private GameObject mapPanel = null;
     [SerializeField] private GameObject HUDPanel = null;
@@ -12,12 +13,12 @@ public class BallController : MonoBehaviour
 
     private void Start()
     {
-        ballPhysiscs = GetComponent<Rigidbody>();
+        BallPhysiscs = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
-        if (ballPhysiscs.velocity == Vector3.zero)
+        if (BallPhysiscs.velocity == Vector3.zero)
         {
             ShowGameHUD();
         }
@@ -29,24 +30,30 @@ public class BallController : MonoBehaviour
 
     public void KickBall(float force)
     {
-
-
-        ballPhysiscs.AddForce(ballFrontal.forward * force * 1000);
+        BallPhysiscs.AddForce(ballFrontal.forward * force * 1000);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.GetComponent<INteractable>() != null)
+        if(other.CompareTag("Finish"))
         {
-            //TODO Llamar para cambiar de jugador
+            if (SV.isSoloMatch)
+            {
+                matchController.ChangeScene(other.GetComponent<FinishController>().nextScene);
+            }
+            else
+            {
+                matchController.SwapPlayer();
+            }
+            ResetBall();
         }
     }
 
     public void ShowGameHUD()
     {
-        if (!isDisplayed)
+        if (!IsDisplayed)
         {
-            isDisplayed = true;
+            IsDisplayed = true;
             controllersPanel.SetActive(true);
             mapPanel.SetActive(true);
             HUDPanel.SetActive(true);
@@ -55,9 +62,15 @@ public class BallController : MonoBehaviour
 
     public void HideGameHUD()
     {
-            controllersPanel.SetActive(false);
-            mapPanel.SetActive(false);
-            HUDPanel.SetActive(false);
-            isDisplayed = false;        
+        controllersPanel.SetActive(false);
+        mapPanel.SetActive(false);
+        HUDPanel.SetActive(false);
+        IsDisplayed = false;
+    }
+
+    public void ResetBall()
+    {
+        transform.position = Vector3.zero;
+        BallPhysiscs.velocity = Vector3.zero;
     }
 }
