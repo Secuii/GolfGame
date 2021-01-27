@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 public class RotateBallButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    [SerializeField] private GameObject ball;
+    [SerializeField] private GameObject ball = null;
     [SerializeField] private int direction = 1;
     [SerializeField] private float rotateSpeed = 30;
     private bool RotateBall;

@@ -3,10 +3,10 @@ using UnityEngine.UI;
 
 public class KickBarController : MonoBehaviour 
 {
-    [SerializeField] private MatchController matchController;
-    [SerializeField] private BallController ballController;
-    [SerializeField] private Gradient gradient;
-    [SerializeField] private Image barColor;
+    [SerializeField] private MatchController matchController = null;
+    [SerializeField] private BallController ballController = null;
+    [SerializeField] private Gradient gradient = null;
+    [SerializeField] private Image barColor = null;
     private float Timer = 0f;
     public bool ChargingBar { get; set; }
     private float force = 0f;

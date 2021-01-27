@@ -3,7 +3,7 @@ using UnityEngine.EventSystems;
 
 public class KickButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    [SerializeField] private KickBarController barController;
+    [SerializeField] private KickBarController barController = null;
     public void OnPointerDown(PointerEventData eventData)
     {
         barController.ChargingBar = true;

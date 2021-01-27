@@ -608,7 +608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b002efc3a0c4bebadd3c4bde41a795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapPanel: {fileID: 0}
+  mapPanel: {fileID: 2022206892}
   players:
   - name: Player1
     matchScoreTexts:
@@ -966,6 +966,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7254252367201104374, guid: 686633a46a648434e8da2f633e587e23,
         type: 3}
+      propertyPath: ballController
+      value: 
+      objectReference: {fileID: 1356457541}
+    - target: {fileID: 7254252367201104374, guid: 686633a46a648434e8da2f633e587e23,
+        type: 3}
       propertyPath: matchController
       value: 
       objectReference: {fileID: 836020760}
@@ -989,6 +994,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 140671177}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1356457541 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2015341146264376834, guid: d41b01259e75344f483803115a042a57,
+    type: 3}
+  m_PrefabInstance: {fileID: 140671177}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1356457540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26b39819f686e4f5daa4aee57cd5f156, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1638550202 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4525164601990382914, guid: 8bf6b5cdc5b914254895287de07f048a,

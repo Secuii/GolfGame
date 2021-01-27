@@ -5,11 +5,11 @@ public class BallController : MonoBehaviour
 {
     public Rigidbody BallPhysiscs { get; set; }
     public bool IsDisplayed { get; set; } = true;
-    [SerializeField] private MatchController matchController;
+    [SerializeField] private MatchController matchController = null;
     [SerializeField] private GameObject controllersPanel = null;
     [SerializeField] private GameObject mapPanel = null;
     [SerializeField] private GameObject HUDPanel = null;
-    [SerializeField] private Transform ballFrontal;
+    [SerializeField] private Transform ballFrontal = null;
 
     private void Start()
     {

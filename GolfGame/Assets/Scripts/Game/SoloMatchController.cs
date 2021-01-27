@@ -11,7 +11,7 @@ public class SoloMatchController : MatchController
 
     [SerializeField] private TMP_Text[] matchScoreTexts = new TMP_Text[0];
     [SerializeField] private TMP_Text totalScores = null;
-    private int[] MatchScores = new int[18] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+    private int[] matchScores = new int[18] { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
     private int currentHole = 0;
 
@@ -46,13 +46,13 @@ public class SoloMatchController : MatchController
             currentHoleText.text = "18";
             FinishGame();
         }
-        MatchScores[currentHole] = 0;
+        matchScores[currentHole] = 0;
         UpdateMatchUI();
     }
 
     public override void SetHolesPoints()
     {
-        MatchScores[currentHole]++;
+        matchScores[currentHole]++;
         UpdateMatchUI();
     }
 
@@ -69,13 +69,13 @@ public class SoloMatchController : MatchController
 
     public override void UpdateMatchUI()
     {
-        matchScoreTexts[currentHole].text = MatchScores[currentHole].ToString();
-        currentPlayerCountText.text = MatchScores[currentHole].ToString();
+        matchScoreTexts[currentHole].text = matchScores[currentHole].ToString();
+        currentPlayerCountText.text = matchScores[currentHole].ToString();
 
         int count = 0;
-        for (int i = 0; i < MatchScores.Length; i++)
+        for (int i = 0; i < matchScores.Length; i++)
         {
-            count += MatchScores[i];
+            count += matchScores[i];
         }
         totalScores.text = count.ToString();
 

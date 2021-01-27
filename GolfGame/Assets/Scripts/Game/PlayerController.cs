@@ -7,7 +7,6 @@ public class PlayerController : MonoBehaviour
     public int palyerLevel { get; set; }
     public float playerExperience { get; set; }
 
-    [SerializeField] private BallController ballController = null;
     [SerializeField] private SoloMatchController matchController = null;
 
     public void AddExperience()

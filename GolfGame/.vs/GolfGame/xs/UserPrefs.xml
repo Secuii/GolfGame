@@ -1,12 +1,16 @@
 ﻿<Properties StartupConfiguration="{CFB677A1-02A0-4F09-F0C7-72EC163B8AFB}|">
   <MonoDevelop.Ide.ItemProperties.Core PreferredExecutionTarget="bf5709ad-cb9b-4bac-a66b-c94945102f9c" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Game/BallController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Game/MapButton.cs">
     <Files>
-      <File FileName="Assets/Scripts/Game/MultiplayerMatchController.cs" Line="25" Column="31" />
-      <File FileName="Assets/Scripts/Game/SoloMatchController.cs" Line="21" Column="31" />
+      <File FileName="Assets/Scripts/Game/MultiplayerMatchController.cs" Line="56" Column="26" />
+      <File FileName="Assets/Scripts/Game/SoloMatchController.cs" Line="14" Column="30" />
       <File FileName="Assets/Scripts/Game/MatchController.cs" Line="14" Column="48" />
-      <File FileName="Assets/Scripts/Game/KickBarController.cs" Line="7" Column="1" />
-      <File FileName="Assets/Scripts/Game/BallController.cs" Line="42" Column="95" />
+      <File FileName="Assets/Scripts/Game/KickBarController.cs" Line="9" Column="51" />
+      <File FileName="Assets/Scripts/Game/BallController.cs" Line="12" Column="58" />
+      <File FileName="Assets/Scripts/Game/RotateBallButton.cs" Line="6" Column="52" />
+      <File FileName="Assets/Scripts/Game/KickButton.cs" Line="6" Column="68" />
+      <File FileName="Assets/Scripts/Game/PlayerController.cs" Line="10" Column="1" />
+      <File FileName="Assets/Scripts/Game/MapButton.cs" Line="6" Column="40" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,7 +20,7 @@
               <Node name="Scripts" expanded="True">
                 <Node name="Core" expanded="True" />
                 <Node name="Game" expanded="True">
-                  <Node name="BallController.cs" selected="True" />
+                  <Node name="MapButton.cs" selected="True" />
                 </Node>
               </Node>
             </Node>
