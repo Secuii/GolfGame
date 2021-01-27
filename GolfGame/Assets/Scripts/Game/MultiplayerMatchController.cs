@@ -43,6 +43,7 @@ public class MultiplayerMatchController : MatchController
         SceneManager.LoadSceneAsync(nextScene, LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync(SV.oldScene);
         SV.oldScene = nextScene;
+        ChangeHole();
     }
     public override void SwapPlayer()
     {
@@ -53,7 +54,7 @@ public class MultiplayerMatchController : MatchController
         {
             currentPlayer = 0;
             currentPlayerText.text = (currentPlayer + 1).ToString();
-            ChangeHole();
+            ChangeScene(nextScene);
         }
     }
 
@@ -64,10 +65,10 @@ public class MultiplayerMatchController : MatchController
         currentHoleParText.text = par[currentHole].ToString();
         if (currentHole + 1 == 19)
         {
-            currentHoleText.text = "18";
+            currentHoleText.text = currentHole.ToString();
             FinishGame();
         }
-        //ChangeScene();
+
     }
 
     public override void SetHolesPoints()
@@ -80,6 +81,7 @@ public class MultiplayerMatchController : MatchController
     public override void FinishGame()
     {
         Debug.Log("Juego terminado");
+        //TODO COMPLETAR GAME LOOP
 
     }
 

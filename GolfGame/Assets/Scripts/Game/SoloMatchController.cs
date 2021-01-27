@@ -34,6 +34,7 @@ public class SoloMatchController : MatchController
         SceneManager.LoadSceneAsync(nextScene, LoadSceneMode.Additive);
         SceneManager.UnloadSceneAsync(SV.oldScene);
         SV.oldScene = nextScene;
+        ChangeHole();
     }
 
     public override void ChangeHole()
@@ -43,7 +44,7 @@ public class SoloMatchController : MatchController
         currentHoleParText.text = par[currentHole].ToString();
         if (currentHole + 1 == 19)
         {
-            currentHoleText.text = "18";
+            currentHoleText.text = currentHole.ToString();
             FinishGame();
         }
         matchScores[currentHole] = 0;
@@ -59,6 +60,8 @@ public class SoloMatchController : MatchController
     public override void FinishGame()
     {
         Debug.Log("Juego terminado");
+
+        //TODO COMPLETAR GAME LOOP
 
     }
 

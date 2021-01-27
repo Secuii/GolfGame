@@ -43,6 +43,7 @@ public class BallController : MonoBehaviour
             }
             else
             {
+                matchController.nextScene = other.GetComponent<FinishController>().nextScene;
                 matchController.SwapPlayer();
             }
             ResetBall();

@@ -4,6 +4,8 @@ public abstract class MatchController : MonoBehaviour
 {
     [SerializeField] private GameObject mapPanel = null;
     private bool isScoreShow = false;
+    public string nextScene { get; set; }
+
 
     public virtual void StartMatch() { }
     public virtual void SwapPlayer() { }
