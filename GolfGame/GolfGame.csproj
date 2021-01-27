@@ -65,11 +65,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Game\BallController.cs" />
-    <Compile Include="Assets\Scripts\Game\ButtonTest.cs" />
     <Compile Include="Assets\Scripts\Game\KickBarController.cs" />
+    <Compile Include="Assets\Scripts\Game\KickButton.cs" />
+    <Compile Include="Assets\Scripts\Game\MapButton.cs" />
     <Compile Include="Assets\Scripts\Game\MatchController.cs" />
     <Compile Include="Assets\Scripts\Game\MultiplayerMatchController.cs" />
     <Compile Include="Assets\Scripts\Game\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Game\RotateBallButton.cs" />
     <Compile Include="Assets\Scripts\Game\SoloMatchController.cs" />
     <None Include="Assets\Scripts\Game\GolfGame.asmdef" />
     <Reference Include="UnityEngine">

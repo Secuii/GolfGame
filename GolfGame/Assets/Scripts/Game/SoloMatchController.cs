@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class SoloMatchController : MatchController
 {
-
     [SerializeField] TMP_Text currentPlayerCountText = null;
     [SerializeField] TMP_Text currentHoleText = null;
     [SerializeField] TMP_Text currentHoleParText = null;
@@ -32,6 +32,7 @@ public class SoloMatchController : MatchController
 
     public override void StartMatch()
     {
+        SceneManager.LoadSceneAsync("Hole1",LoadSceneMode.Additive);
         currentHoleParText.text = par[0].ToString();
     }
 

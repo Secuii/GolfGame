@@ -14,4 +14,58 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MultiplayerMatch.unity
     guid: eff6ec3ca553f40c68b6ed0a97c133d6
+  - enabled: 1
+    path: Assets/Scenes/Levels/Hole1.unity
+    guid: 957e1636b86434f98b129afa0e4255be
+  - enabled: 1
+    path: Assets/Scenes/Levels/Hole2.unity
+    guid: 912b1569d41ea4368903173170e73b63
+  - enabled: 1
+    path: Assets/Scenes/Levels/Hole3.unity
+    guid: ed6c682461c324f27b8ac17003d3aafd
+  - enabled: 1
+    path: Assets/Scenes/Levels/Hole4.unity
+    guid: e7fe9b787f74540c3b7884a24e164720
+  - enabled: 1
+    path: Assets/Scenes/Levels/Hole5.unity
+    guid: 43f44914bcdd14314a2e47c2afcc0301
+  - enabled: 1
+    path: Assets/Scenes/Levels/Hole6.unity
+    guid: 6c3dbad2dfb95477ea234400c234fb69
+  - enabled: 1
+    path: Assets/Scenes/Levels/Hole7.unity
+    guid: b8fcc9fbc3e80410a9ffd9c2540a63d9
+  - enabled: 1
+    path: Assets/Scenes/Levels/Hole8.unity
+    guid: 2c82607aa6ab947e18d393fe98a8de80
+  - enabled: 1
+    path: Assets/Scenes/Levels/Hole9.unity
+    guid: 38800f9df83e24b0ba9a4d59cb14bd1f
+  - enabled: 1
+    path: Assets/Scenes/Levels/Hole10.unity
+    guid: 5af075ab7d5214690952d1dab14e4573
+  - enabled: 1
+    path: Assets/Scenes/Levels/Hole11.unity
+    guid: 949dba9c272444391bfcd20f05135a4c
+  - enabled: 1
+    path: Assets/Scenes/Levels/Hole12.unity
+    guid: 709c5a8543da94239a924331add9114d
+  - enabled: 1
+    path: Assets/Scenes/Levels/Hole13.unity
+    guid: 848d19f0354714ffa9ef4cb9d7c761bc
+  - enabled: 1
+    path: Assets/Scenes/Levels/Hole14.unity
+    guid: 4ade27684bfba4405b74a9878f68e1e1
+  - enabled: 1
+    path: Assets/Scenes/Levels/Hole15.unity
+    guid: 6a758dd6052ea41d2a6c2a8953f1f061
+  - enabled: 1
+    path: Assets/Scenes/Levels/Hole16.unity
+    guid: a6a2ea435f1ee497a97e233da58eb9e3
+  - enabled: 1
+    path: Assets/Scenes/Levels/Hole17.unity
+    guid: e7d7bad19c82c4de3b2e04efc4bddb97
+  - enabled: 1
+    path: Assets/Scenes/Levels/Hole18.unity
+    guid: db623c7ec8add4ea4bba3585a627f05e
   m_configObjects: {}

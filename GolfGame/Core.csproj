@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Core\ConectToRanking.cs" />
     <Compile Include="Assets\Scripts\Core\InitializeGame.cs" />
+    <Compile Include="Assets\Scripts\Core\Interactable.cs" />
     <Compile Include="Assets\Scripts\Core\MenuController.cs" />
     <Compile Include="Assets\Scripts\Core\SV.cs" />
     <None Include="Assets\Scripts\Core\Core.asmdef" />
