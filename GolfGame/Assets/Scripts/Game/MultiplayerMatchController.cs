@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class MultiplayerMatchController : MonoBehaviour
+public class MultiplayerMatchController : MatchController
 {
     public Players[] players = new Players[4];
     
@@ -19,15 +19,9 @@ public class MultiplayerMatchController : MonoBehaviour
     private int currentPlayer = 0;
     private int playerCount = 2;
 
-    private bool isScoreShow = false;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            //TODO Añadimos golpes
-            SetHolesPoints();
-        }
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -46,13 +40,13 @@ public class MultiplayerMatchController : MonoBehaviour
         StartMatch();
     }
 
-    private void StartMatch()
+    public override void StartMatch()
     {
         currentHoleParText.text = par[0].ToString();
 
     }
 
-    private void SwapPlayer()
+    public override void SwapPlayer()
     {
         currentPlayer++;
         currentPlayerCountText.text = "0";
@@ -65,7 +59,7 @@ public class MultiplayerMatchController : MonoBehaviour
         }
     }
 
-    private void ChangeHole()
+    public override void ChangeHole()
     {
         currentHole++;
         currentHoleText.text = (currentHole + 1).ToString();
@@ -77,20 +71,20 @@ public class MultiplayerMatchController : MonoBehaviour
         }
     }
 
-    private void SetHolesPoints()
+    public override void SetHolesPoints()
     {
         players[currentPlayer].MatchScores[currentHole]++;
         currentPlayerCountText.text = players[currentPlayer].MatchScores[currentHole].ToString();
         UpdateMatchUI();
     }
 
-    private void FinishGame()
+    public override void FinishGame()
     {
         Debug.Log("Juego terminado");
 
     }
 
-    public void UpdateMatchUI()
+    public override void UpdateMatchUI()
     {
         players[currentPlayer].matchScoreTexts[currentHole].text = players[currentPlayer].MatchScores[currentHole].ToString();
 
@@ -101,21 +95,6 @@ public class MultiplayerMatchController : MonoBehaviour
         }
         players[currentPlayer].totalScores.text = count.ToString();
 
-    }
-
-    //Muestra la tabla de puntuacion de los jugadores
-    public void ScoreButton(Animator score)
-    {
-        if(!isScoreShow)
-        {
-            score.Play("ShowScorePanel");
-            isScoreShow = true;
-        }
-        else
-        {
-            score.Play("HideScorePanel");
-            isScoreShow = false;
-        }
     }
 }
 
