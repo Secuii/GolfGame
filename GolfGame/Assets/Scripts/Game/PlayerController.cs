@@ -14,10 +14,4 @@ public class PlayerController : MonoBehaviour
     {
         playerExperience = matchController.CheckMatchExperience();
     }
-
-    public void KickBall()
-    {
-        ballController.KickBall();
-    }
-
 }

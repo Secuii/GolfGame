@@ -24,14 +24,6 @@ public class MenuController : MonoBehaviour
         currentPanel = nextPanel;
     }
     
-    public void BackMenu(GameObject currentPanel)
-    {
-        lastPanel.SetActive(true);
-        this.currentPanel.SetActive(false);
-        this.currentPanel = lastPanel;
-        lastPanel = currentPanel;
-    }
-
     public void StartMatchScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
