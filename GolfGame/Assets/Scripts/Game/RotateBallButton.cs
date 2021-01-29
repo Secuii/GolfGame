@@ -3,9 +3,12 @@ using UnityEngine.EventSystems;
 
 public class RotateBallButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
-    [SerializeField] private GameObject ball = null;
+    [SerializeField] private GameObject ballLeftRight = null;
+    [SerializeField] private BallController ballController = null;
+    [SerializeField] private GameObject ballUpDown = null;
     [SerializeField] private int direction = 1;
-    [SerializeField] private float rotateSpeed = 30;
+    [SerializeField] private float rotateSpeedHorizontal = 30;
+    [SerializeField] private float rotateSpeedVertical = 30;
     private bool RotateBall;
 
     public void OnPointerDown(PointerEventData eventData)
@@ -22,7 +25,8 @@ public class RotateBallButton : MonoBehaviour, IPointerDownHandler, IPointerUpHa
     {
         if (RotateBall)
         {
-            ball.transform.Rotate(new Vector3(0, rotateSpeed, 0) * direction * Time.deltaTime, Space.World);
+            ballLeftRight.transform.Rotate(new Vector3(0, rotateSpeedHorizontal, 0) * direction * Time.deltaTime, Space.World);
+            ballUpDown.transform.Translate(new Vector3(0, 0, rotateSpeedVertical) * direction * Time.deltaTime);
         }
     }
 }

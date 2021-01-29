@@ -65,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Game\BallController.cs" />
+    <Compile Include="Assets\Scripts\Game\BallHighButton.cs" />
     <Compile Include="Assets\Scripts\Game\FinishController.cs" />
     <Compile Include="Assets\Scripts\Game\KickBarController.cs" />
     <Compile Include="Assets\Scripts\Game\KickButton.cs" />
