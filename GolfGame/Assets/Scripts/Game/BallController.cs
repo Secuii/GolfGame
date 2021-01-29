@@ -8,11 +8,10 @@ public class BallController : MonoBehaviour
     //public float BallHigh;
     public float gravity;
 
-
-
     public bool IsDisplayed { get; set; } = true;
     [SerializeField] private MatchController matchController = null;
-    [SerializeField] private LineRenderer predictionLine = null;
+    [SerializeField] private LineRenderer mapPredictionLine = null;
+    [SerializeField] private LineRenderer GamePredictionLine = null;
     [SerializeField] private GameObject controllersPanel = null;
     [SerializeField] private GameObject mapPanel = null;
     [SerializeField] private GameObject HUDPanel = null;
@@ -23,16 +22,17 @@ public class BallController : MonoBehaviour
 
     private void Start()
     {
-        predictionLine.startWidth = 6;
-        predictionLine.endWidth = 6;
+        mapPredictionLine.startWidth = 6;
+        mapPredictionLine.endWidth = 6;
         BallPhysiscs = GetComponent<Rigidbody>();
+
     }
 
     public void LineEnd()
     {
-        predictionLine.SetPosition(0, new Vector3(transform.position.x, 120,transform.position.z));
-        predictionLine.SetPosition(1, new Vector3(ArrowDirection.transform.position.x, 120, ArrowDirection.transform.position.z));
-        DrawPath();
+        mapPredictionLine.SetPosition(0, new Vector3(transform.position.x, 120, transform.position.z));
+        mapPredictionLine.SetPosition(1, new Vector3(ArrowDirection.transform.position.x, 120, ArrowDirection.transform.position.z));
+        //DrawPath();
     }
 
     private void Update()
@@ -46,16 +46,17 @@ public class BallController : MonoBehaviour
             HideGameHUD();
         }
         LineEnd();
-        StabilizeHigh();        
+        StabilizeHigh();
+        DrawPredictionLineRenderer();
     }
 
     private void StabilizeHigh()
     {
-        if(BallHigh >= 25)
+        if (BallHigh >= 25)
         {
             BallHigh = 24.9f;
         }
-        else if(BallHigh <= 1)
+        else if (BallHigh <= 1)
         {
             BallHigh = 1.1f;
         }
@@ -63,7 +64,7 @@ public class BallController : MonoBehaviour
 
     public void KickBall(float force)
     {
-        BallForce = Mathf.Lerp(10,1,force);
+        BallForce = Mathf.Lerp(10, 1, force);
         BallHigh = Mathf.Lerp(1, BallHigh, force);
         Launch();
 
@@ -71,7 +72,7 @@ public class BallController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Finish"))
+        if (other.CompareTag("Finish"))
         {
             if (SV.isSoloMatch)
             {
@@ -95,6 +96,7 @@ public class BallController : MonoBehaviour
             mapPanel.SetActive(true);
             HUDPanel.SetActive(true);
             ArrowDirection.SetActive(true);
+            GamePredictionLine.gameObject.SetActive(true);
         }
     }
 
@@ -105,6 +107,7 @@ public class BallController : MonoBehaviour
         HUDPanel.SetActive(false);
         IsDisplayed = false;
         ArrowDirection.SetActive(false);
+        GamePredictionLine.gameObject.SetActive(false);
     }
 
     public void ResetBall()
@@ -112,6 +115,8 @@ public class BallController : MonoBehaviour
         transform.position = Vector3.zero;
         BallPhysiscs.velocity = Vector3.zero;
     }
+
+    // CODIGO SACADO DE https://www.youtube.com/watch?v=IvT8hjy6q4o
     void Launch()
     {
         Physics.gravity = Vector3.up * gravity;
@@ -126,7 +131,7 @@ public class BallController : MonoBehaviour
         float time = Mathf.Sqrt(-2 * BallHigh / gravity) + Mathf.Sqrt(2 * (displacementY - BallHigh) / gravity);
 
         Vector3 velocityY = Vector3.up * Mathf.Sqrt(-2 * gravity * BallHigh);
-        Vector3 velocityXZ = (displacementXZ/BallForce) / time;
+        Vector3 velocityXZ = (displacementXZ / BallForce) / time;
 
         return new LaunchData(velocityXZ + velocityY * -Mathf.Sign(gravity), time);
     }
@@ -143,18 +148,20 @@ public class BallController : MonoBehaviour
         return new LaunchData(velocityXZ + velocityY * -Mathf.Sign(gravity), time);
     }
 
-    void DrawPath()
+    private void DrawPredictionLineRenderer()
     {
         LaunchData launchData = CalculateLaunchDataDraw();
         Vector3 previousDrawPoint = BallPhysiscs.position;
 
-        int resolution = 30;
-        for (int i = 1; i <= resolution; i++)
+        GamePredictionLine.positionCount = 30;
+        GamePredictionLine.SetPosition(0, transform.position);
+
+        for (int i = 1; i <= GamePredictionLine.positionCount - 1; i++)
         {
-            float simulationTime = i / (float)resolution * launchData.timeToTarget;
+            float simulationTime = i / (float)GamePredictionLine.positionCount * launchData.timeToTarget;
             Vector3 displacement = launchData.initialVelocity * simulationTime + Vector3.up * gravity * simulationTime * simulationTime / 2f;
             Vector3 drawPoint = BallPhysiscs.position + displacement;
-            Debug.DrawLine(previousDrawPoint, drawPoint, Color.green);
+            GamePredictionLine.SetPosition(i, previousDrawPoint);
             previousDrawPoint = drawPoint;
         }
     }
@@ -169,7 +176,5 @@ public class BallController : MonoBehaviour
             this.initialVelocity = initialVelocity;
             this.timeToTarget = timeToTarget;
         }
-
     }
-
 }

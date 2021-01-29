@@ -1,12 +1,12 @@
 ﻿<Properties StartupConfiguration="{CFB677A1-02A0-4F09-F0C7-72EC163B8AFB}|">
-  <MonoDevelop.Ide.ItemProperties.Core PreferredExecutionTarget="ec202c7c-105d-48e8-bc82-cdd1d802edb0" />
+  <MonoDevelop.Ide.ItemProperties.Core PreferredExecutionTarget="356e7829-63f0-46e7-a565-32a33143ba07" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Game/BallController.cs">
     <Files>
-      <File FileName="Assets/Scripts/Game/FinishController.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Game/BallController.cs" Line="34" Column="91" />
-      <File FileName="Assets/Scripts/Game/RotateBallButton.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Game/KickBarController.cs" Line="41" Column="35" />
-      <File FileName="Assets/Scripts/Game/BallHighButton.cs" Line="25" Column="78" />
+      <File FileName="Assets/Scripts/Game/BallController.cs" Line="31" Column="26" />
+      <File FileName="Assets/Scripts/Game/FinishController.cs" Line="8" Column="1" />
+      <File FileName="Assets/Scripts/Game/RotateBallButton.cs" />
+      <File FileName="Assets/Scripts/Game/KickBarController.cs" />
+      <File FileName="Assets/Scripts/Game/BallHighButton.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
